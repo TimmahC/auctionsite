@@ -1,23 +1,27 @@
-<header>
-  <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+<?php
+session_start();
+?>
 
+<header>
+
+<link rel="stylesheet" href="resources/bootstrap-3.3.5/css/bootstrap.min.css"/>
 <!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+<link rel="stylesheet" href="resources/bootstrap-3.3.5/css/bootstrap-theme.min.css"/>
+
 <style>
-  input[name="searchterm"] { 
-  width: 450px;
-  }
 </style>
 </header>
-<html>
-<body>
+
+
 
     <?php
     if (isset($_SESSION['username']))
     {   
     ?>
+    <html>
     
+    <body>
+        
     <nav role="navigation" class="navbar navbar-default navbar-static-top navbar-inverse">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -32,25 +36,34 @@
     <!-- Collection of nav links and other content for toggling //   class="active"  -->
       <div id="navbarCollapse" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-                <li><a href="Home.php">Home</a></li>
+                <li><a href="index.php">Home</a></li>
             </ul>
             <ul class="nav navbar-nav">
-              <li><a href="postitem.html/<?php  ?>">Sell an Item</a></li>
+              <li><a href="postItem.php">Sell an Item</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-              <li><a href="myaccount.html/php">My Account</a></li>
+              <li><a href="myaccount.php"><?php echo $_SESSION['username'] ?></a></li>
           </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="login.php">Log-Out</a></li>
+                <li><a href="logout.php">Log-Out</a></li>
             </ul>
        </div>
     </div>
   </nav>
-    <ul class="search_bar">
-    <form method="post" action="search.php">
-    <input type="text" name="searchterm" placeholder="search for item..." required><input type="button" value="search" name="Search">
-    </form>
-    </ul>
+    <center>
+      <ul class="search_bar">
+        <form class="form-inline" method="post" action="search.php">
+    
+          <input type="text" name="searchterm"  class="form-control"  placeholder="search for item..." required style="width: 40%">
+          <input type="Submit" value="Search" name="Search" class="btn btn-info">
+        </form>
+      </ul>
+    </center>
+
+    <script src="resources/jquery-1.11.3.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="resources/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+
   </body>
 </html>
 <?php
@@ -76,12 +89,6 @@ else
           <ul class="nav navbar-nav">
                 <li><a href="index.php">Home</a></li>
             </ul>
-            <ul class="nav navbar-nav">
-              <li><a href="postitem.html/<?php  ?>">Sell an Item</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-              <li><a href="myaccount.html/php">My Account</a></li>
-          </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="login.php">Log-In</a></li>
             </ul>
@@ -89,12 +96,19 @@ else
     </div>
   </nav>
     <center>
-    <ul class="search_bar">
-    <form method="post" action="search.php">
-    <input type="text" name="searchterm" placeholder="search for item..." required><input type="button" value="search" name="Search">
-    </form>
-    </ul>
+      <ul class="search_bar">
+      <form class="form-inline" method="post" action="search.php">
+     
+        <input type="text" name="searchterm" class="form-control" placeholder="search for item..." required style="width: 40%">
+        <input type="Submit" value="Search" name="Search" class="btn btn-info">
+     
+      </form>
+      </ul>
     </center>
+
+    <script src="resources/jquery-1.11.3.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="resources/bootstrap-3.3.5/js/bootstrap.min.js"></script>
   </body>
 </html>
 <?php

@@ -1,7 +1,8 @@
-
 <?php
-	$database = "Auction";
+
+	$database = "auction";
   	$dbusername = "db2admin";
   	$dbpassword =  "cs174";
-        $computerUserName = "ahmed";
+    $computerUserName = "db2admin";
+
 ?>

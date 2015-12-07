@@ -1,23 +1,20 @@
 
 <?php
-//phpinfo();
-//exit;
 
-include 'connect.php';
+include 'config.php';
 	try{
-		$conn = db2_connect($database, $dbusername, $dbpassword);
+		$conn = db2_connect($dbname, $username, $password);
 	}
 	catch( Exception $e ){
 		echo "Exception: ". $e->getMessage();
 	}
 	$id = $_GET['id'];
 	if( $conn ){
-		$sql = "select id, name , DESCRIPTION, POST_PRICE, POST_DATE, POST_TIME, END_DATE, NUMBER_OF_BIDS, IMAGE, CONDITION, POSTER_EMAIL, WINNER_EMAIL
-		from items
-		where id= $id";
+		$sql = "select id, name , DESCRIPTION, POST_PRICE, POST_DATE, POST_TIME, IMAGE, CONDITION
+		from ".$computerName.".items
+		where id= ".$id.";";
 		$stmt = db2_prepare($conn, $sql);
-		
-		if( $stmt)
+		if($stmt)
 		{
 			$result = db2_execute($stmt);
 		}
